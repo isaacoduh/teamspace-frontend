@@ -3,6 +3,7 @@ import {
   LoginResponseType,
   LoginType,
   registerType,
+  WorkspaceByIdResponseType,
 } from "../types/api.type";
 import API from "./axios-client";
 
@@ -22,3 +23,12 @@ export const getCurrentUserQueryFn =
     const response = await API.get(`/user/current`);
     return response.data;
   };
+
+// Workspace
+// ====================
+export const getWorkspaceByIdQueryFn = async (
+  workspaceId: string
+): Promise<WorkspaceByIdResponseType> => {
+  const response = await API.get(`/workspace/${workspaceId}`);
+  return response.data;
+};
