@@ -1,4 +1,5 @@
 import {
+  AllWorkspaceResponseType,
   CurrentUserResponseType,
   LoginResponseType,
   LoginType,
@@ -32,3 +33,9 @@ export const getWorkspaceByIdQueryFn = async (
   const response = await API.get(`/workspace/${workspaceId}`);
   return response.data;
 };
+
+export const getAllWorkspacesUserIsMemberQueryFn =
+  async (): Promise<AllWorkspaceResponseType> => {
+    const response = await API.get(`/workspace/all`);
+    return response.data;
+  };

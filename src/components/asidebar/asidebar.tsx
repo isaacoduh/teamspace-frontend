@@ -28,6 +28,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { WorkspaceSwitcher } from "./workspace-switcher";
 
 const Asidebar = () => {
   const { isLoading, user } = useAuthContext();
@@ -53,7 +54,7 @@ const Asidebar = () => {
         <SidebarContent className="!mt-0 dark:bg-background">
           <SidebarGroup className="!py-0">
             <SidebarGroupContent>
-              {/* <WorkspaceSwitcher /> */}
+              <WorkspaceSwitcher />
               <Separator />
               {/* <NavMain /> */}
               <Separator />

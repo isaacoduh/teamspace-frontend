@@ -63,3 +63,8 @@ export type WorkspaceByIdResponseType = {
   message: string;
   worksapce: WorkspaceWithMembersType;
 };
+
+export type AllWorkspaceResponseType = {
+  message: string;
+  workspaces: WorkspaceType[];
+};
