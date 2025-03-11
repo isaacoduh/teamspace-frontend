@@ -29,6 +29,7 @@ import {
 } from "../ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { WorkspaceSwitcher } from "./workspace-switcher";
+import { NavMain } from "./nav-main";
 
 const Asidebar = () => {
   const { isLoading, user } = useAuthContext();
@@ -56,7 +57,7 @@ const Asidebar = () => {
             <SidebarGroupContent>
               <WorkspaceSwitcher />
               <Separator />
-              {/* <NavMain /> */}
+              <NavMain />
               <Separator />
               {/* <NavProjects /> */}
             </SidebarGroupContent>
