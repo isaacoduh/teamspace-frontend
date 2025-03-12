@@ -7,6 +7,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "../../components/ui/tabs";
+import WorkspaceAnalytics from "../../components/workspace/workspace-analytics";
 
 const WorkspaceDashboard = () => {
   const { onOpen } = useCreateProjectDialog();
@@ -27,7 +28,7 @@ const WorkspaceDashboard = () => {
           New Project
         </Button>
       </div>
-      <div className="">Workspace Analytics</div>
+      <WorkspaceAnalytics />
       <div className="mt-4">
         <Tabs defaultValue="projects" className="w-full border rounded-lg p-2">
           <TabsList className="w-full justify-start border-0 bg-gray-50 px-1 h-12">

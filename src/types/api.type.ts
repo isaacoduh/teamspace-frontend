@@ -85,6 +85,15 @@ export type RoleType = {
   name: string;
 };
 
+export type AnalyticsResponseType = {
+  message: string;
+  analytics: {
+    totalTasks: number;
+    overdueTasks: number;
+    completedTasks: number;
+  };
+};
+
 // Project Types
 // ===============================
 export type ProjectType = {

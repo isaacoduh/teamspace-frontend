@@ -1,6 +1,7 @@
 import {
   AllProjectPayloadType,
   AllProjectResponseType,
+  AnalyticsResponseType,
   ProjectByIdPayloadType,
 } from "./../types/api.type";
 import {
@@ -65,5 +66,12 @@ export const deleteProjectMutationFn = async ({
   const response = await API.delete(
     `/project/${projectId}/workspace/${workspaceId}/delete`
   );
+  return response.data;
+};
+
+export const getWorkspaceAnalyticsQueryFn = async (
+  workspaceId: string
+): Promise<AnalyticsResponseType> => {
+  const response = await API.get(`/workspace/analytics/${workspaceId}`);
   return response.data;
 };
