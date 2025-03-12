@@ -1,6 +1,9 @@
 import {
+  AllMembersInWorkspaceResponseType,
   AllProjectPayloadType,
   AllProjectResponseType,
+  AllTaskResponseType,
+  AllTaskPayloadType,
   AnalyticsResponseType,
   ProjectByIdPayloadType,
 } from "./../types/api.type";
@@ -46,6 +49,13 @@ export const getAllWorkspacesUserIsMemberQueryFn =
     return response.data;
   };
 
+export const getMembersInWorkspaceQueryFn = async (
+  workspaceId: string
+): Promise<AllMembersInWorkspaceResponseType> => {
+  const response = await API.get(`/workspace/members/${workspaceId}`);
+  return response.data;
+};
+
 // Projects
 // ====================================
 export const getProjectsInWorkspaceQueryFn = async ({
@@ -73,5 +83,35 @@ export const getWorkspaceAnalyticsQueryFn = async (
   workspaceId: string
 ): Promise<AnalyticsResponseType> => {
   const response = await API.get(`/workspace/analytics/${workspaceId}`);
+  return response.data;
+};
+
+// ***** Tasks ============
+// ************************ //
+export const getAllTasksQueryFn = async ({
+  workspaceId,
+  keyword,
+  projectId,
+  assignedTo,
+  priority,
+  status,
+  dueDate,
+  pageNumber,
+  pageSize,
+}: AllTaskPayloadType): Promise<AllTaskResponseType> => {
+  const baseUrl = `/task/workspace/${workspaceId}/all`;
+
+  const queryParams = new URLSearchParams();
+  if (keyword) queryParams.append("keyword", keyword);
+  if (projectId) queryParams.append("projectId", projectId);
+  if (assignedTo) queryParams.append("assignedTo", assignedTo);
+  if (priority) queryParams.append("priority", priority);
+  if (status) queryParams.append("status", status);
+  if (dueDate) queryParams.append("dueDate", dueDate);
+  if (pageNumber) queryParams.append("pageNumber", pageNumber?.toString());
+  if (pageSize) queryParams.append("pageSize", pageSize?.toString());
+
+  const url = queryParams.toString() ? `${baseUrl}?${queryParams}` : baseUrl;
+  const response = await API.get(url);
   return response.data;
 };

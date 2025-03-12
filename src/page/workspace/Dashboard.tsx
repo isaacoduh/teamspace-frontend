@@ -8,6 +8,9 @@ import {
   TabsTrigger,
 } from "../../components/ui/tabs";
 import WorkspaceAnalytics from "../../components/workspace/workspace-analytics";
+import RecentProjects from "../../components/workspace/project/recent-projects";
+import RecentMembers from "../../components/workspace/member/recent-members";
+import RecentTasks from "../../components/workspace/task/recent-tasks";
 
 const WorkspaceDashboard = () => {
   const { onOpen } = useCreateProjectDialog();
@@ -43,13 +46,13 @@ const WorkspaceDashboard = () => {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="projects">
-            <p>Recent Projects</p>
+            <RecentProjects />
           </TabsContent>
           <TabsContent value="tasks">
-            <p>Recent Tasks</p>
+            <RecentTasks />
           </TabsContent>
           <TabsContent value="members">
-            <p>Recent Members</p>
+            <RecentMembers />
           </TabsContent>
         </Tabs>
       </div>

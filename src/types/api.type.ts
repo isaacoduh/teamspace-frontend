@@ -69,6 +69,27 @@ export type AllWorkspaceResponseType = {
   workspaces: WorkspaceType[];
 };
 
+export type AllMembersInWorkspaceResponseType = {
+  message: string;
+  members: {
+    _id: string;
+    userId: {
+      _id: string;
+      name: string;
+      email: string;
+      profilePicture: string | null;
+    };
+    workspaceId: string;
+    role: {
+      _id: string;
+      name: string;
+    };
+    joinedAt: string;
+    createdAt: string;
+  }[];
+  roles: RoleType[];
+};
+
 // Utility Types
 // ==============================
 export type PaginationType = {
@@ -128,4 +149,43 @@ export type AllProjectResponseType = {
 export type ProjectByIdPayloadType = {
   workspaceId: string;
   projectId: string;
+};
+
+//*****Task */
+// =========================
+export type TaskType = {
+  _id: string;
+  title: string;
+  description?: string;
+  project?: { _id: string; emoji: string; name: string };
+  priority: TaskPriorityEnumType;
+  status: TaskStatusEnumType;
+  assignedTo: {
+    _id: string;
+    name: string;
+    profilePicture: string | null;
+  } | null;
+  createdBy?: string;
+  dueDate: string;
+  taskCode: string;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export type AllTaskPayloadType = {
+  workspaceId: string;
+  projectId?: string | null;
+  keyword?: string | null;
+  priority?: TaskPriorityEnumType | null;
+  status?: TaskStatusEnumType | null;
+  assignedTo?: string | null;
+  dueDate?: string | null;
+  pageNumber?: number | null;
+  pageSize?: number | null;
+};
+
+export type AllTaskResponseType = {
+  message: string;
+  tasks: TaskType[];
+  pagination: PaginationType;
 };
