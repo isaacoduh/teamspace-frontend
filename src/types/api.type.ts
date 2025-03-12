@@ -68,3 +68,55 @@ export type AllWorkspaceResponseType = {
   message: string;
   workspaces: WorkspaceType[];
 };
+
+// Utility Types
+// ==============================
+export type PaginationType = {
+  totalCount: number;
+  pageSize: number;
+  pageNumber: number;
+  totalPages: number;
+  skip: number;
+  limit: number;
+};
+
+export type RoleType = {
+  _id: string;
+  name: string;
+};
+
+// Project Types
+// ===============================
+export type ProjectType = {
+  _id: string;
+  name: string;
+  emoji: string;
+  description: string;
+  workspace: string;
+  createdBy: {
+    _id: string;
+    name: string;
+    profilePicture: string;
+  };
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type AllProjectPayloadType = {
+  workspaceId: string;
+  pageNumber?: number;
+  pageSize?: number;
+  keyword?: string;
+  skip?: boolean;
+};
+
+export type AllProjectResponseType = {
+  message: string;
+  projects: ProjectType[];
+  pagination: PaginationType;
+};
+
+export type ProjectByIdPayloadType = {
+  workspaceId: string;
+  projectId: string;
+};
