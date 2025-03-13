@@ -4,6 +4,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getProjectByIdQueryFn } from "../../../lib/api";
 import PermissionsGuard from "../../reusable/permission-guard";
 import { Permissions } from "../../../constant";
+import EditProjectDialog from "./edit-project-dialog";
 
 const ProjectHeader = () => {
   const param = useParams();
@@ -45,7 +46,7 @@ const ProjectHeader = () => {
           {renderContent()}
         </h2>
         <PermissionsGuard requiredPermission={Permissions.EDIT_PROJECT}>
-          <div>Edit Project Dialog</div>
+          <EditProjectDialog project={project} />
         </PermissionsGuard>
       </div>
       {/* TODO: Create Task Dialog */}

@@ -7,6 +7,8 @@ import {
   AnalyticsResponseType,
   ProjectByIdPayloadType,
   ProjectResponseType,
+  CreateProjectPayloadType,
+  EditProjectPayloadType,
 } from "./../types/api.type";
 import {
   AllWorkspaceResponseType,
@@ -59,6 +61,29 @@ export const getMembersInWorkspaceQueryFn = async (
 
 // Projects
 // ====================================
+
+export const createProjectMutationFn = async ({
+  workspaceId,
+  data,
+}: CreateProjectPayloadType): Promise<ProjectResponseType> => {
+  const response = await API.post(
+    `/project/workspace/${workspaceId}/create`,
+    data
+  );
+  return response.data;
+};
+
+export const editProjectMutationFn = async ({
+  projectId,
+  workspaceId,
+  data,
+}: EditProjectPayloadType): Promise<ProjectResponseType> => {
+  const response = await API.put(
+    `/project/${projectId}/workspace/${workspaceId}/update`,
+    data
+  );
+  return response.data;
+};
 
 export const getProjectByIdQueryFn = async ({
   workspaceId,

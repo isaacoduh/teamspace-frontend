@@ -132,6 +132,25 @@ export type ProjectType = {
   updatedAt: string;
 };
 
+export type CreateProjectPayloadType = {
+  workspaceId: string;
+  data: {
+    emoji: string;
+    name: string;
+    description: string;
+  };
+};
+
+export type EditProjectPayloadType = {
+  workspaceId: string;
+  projectId: string;
+  data: {
+    emoji: string;
+    name: string;
+    description: string;
+  };
+};
+
 export type ProjectResponseType = {
   message: "Project created successfully";
   project: ProjectType;
