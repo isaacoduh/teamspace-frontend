@@ -132,6 +132,11 @@ export type ProjectType = {
   updatedAt: string;
 };
 
+export type ProjectResponseType = {
+  message: "Project created successfully";
+  project: ProjectType;
+};
+
 export type AllProjectPayloadType = {
   workspaceId: string;
   pageNumber?: number;

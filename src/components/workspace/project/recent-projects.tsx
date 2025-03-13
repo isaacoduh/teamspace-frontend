@@ -38,7 +38,7 @@ const RecentProjects = () => {
               className="shadow-none cursor-pointer border-0 py-2 hover:bg-gray-50 transition-colors ease-in-out"
             >
               <Link
-                to={`workspace/${workspaceId}/project/${project._id}`}
+                to={`/workspace/${workspaceId}/project/${project._id}`}
                 className="grid gap-8 p-0"
               >
                 <div className="flex items-start gap-2">
