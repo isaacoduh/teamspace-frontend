@@ -9,6 +9,8 @@ import {
   ProjectResponseType,
   CreateProjectPayloadType,
   EditProjectPayloadType,
+  CreateWorkspaceType,
+  CreateWorkspaceResponseType,
 } from "./../types/api.type";
 import {
   AllWorkspaceResponseType,
@@ -17,6 +19,7 @@ import {
   LoginType,
   registerType,
   WorkspaceByIdResponseType,
+  EditWorkspaceType,
 } from "../types/api.type";
 import API from "./axios-client";
 
@@ -39,6 +42,21 @@ export const getCurrentUserQueryFn =
 
 // Workspace
 // ====================
+export const createWorkspaceMutationFn = async (
+  data: CreateWorkspaceType
+): Promise<CreateWorkspaceResponseType> => {
+  const response = await API.post(`/workspace/create/new`, data);
+  return response.data;
+};
+
+export const editWorkspaceMutationFn = async ({
+  workspaceId,
+  data,
+}: EditWorkspaceType) => {
+  const response = await API.put(`/workspace/update/${workspaceId}`, data);
+  return response.data;
+};
+
 export const getWorkspaceByIdQueryFn = async (
   workspaceId: string
 ): Promise<WorkspaceByIdResponseType> => {

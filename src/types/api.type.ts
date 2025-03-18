@@ -44,6 +44,24 @@ export type WorkspaceType = {
   inviteCode: string;
 };
 
+export type CreateWorkspaceType = {
+  name: string;
+  description: string;
+};
+
+export type EditWorkspaceType = {
+  workspaceId: string;
+  data: {
+    name: string;
+    description: string;
+  };
+};
+
+export type CreateWorkspaceResponseType = {
+  message: string;
+  workspace: WorkspaceType;
+};
+
 export type WorkspaceWithMembersType = WorkspaceType & {
   members: {
     _id: string;
