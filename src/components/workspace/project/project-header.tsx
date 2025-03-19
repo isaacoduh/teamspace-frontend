@@ -5,6 +5,7 @@ import { getProjectByIdQueryFn } from "../../../lib/api";
 import PermissionsGuard from "../../reusable/permission-guard";
 import { Permissions } from "../../../constant";
 import EditProjectDialog from "./edit-project-dialog";
+import CreateTaskDialog from "../task/create-task-dialog";
 
 const ProjectHeader = () => {
   const param = useParams();
@@ -50,7 +51,9 @@ const ProjectHeader = () => {
         </PermissionsGuard>
       </div>
       {/* TODO: Create Task Dialog */}
-      <p>TODO: Create Task Dialog</p>
+      <>
+        <CreateTaskDialog />
+      </>
     </div>
   );
 };
