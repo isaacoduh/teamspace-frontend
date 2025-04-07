@@ -12,6 +12,7 @@ import {
   CreateWorkspaceType,
   CreateWorkspaceResponseType,
   CreateTaskPayloadType,
+  ChangeWorkspaceMemberRoleType,
 } from "./../types/api.type";
 import {
   AllWorkspaceResponseType,
@@ -75,6 +76,17 @@ export const getMembersInWorkspaceQueryFn = async (
   workspaceId: string
 ): Promise<AllMembersInWorkspaceResponseType> => {
   const response = await API.get(`/workspace/members/${workspaceId}`);
+  return response.data;
+};
+
+export const changeWorkspaceMemberRoleMutationFn = async ({
+  workspaceId,
+  data,
+}: ChangeWorkspaceMemberRoleType) => {
+  const response = await API.put(
+    `/workspace/change/member/role/${workspaceId}`,
+    data
+  );
   return response.data;
 };
 
