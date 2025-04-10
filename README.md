@@ -36,6 +36,36 @@ TeamSpace is a modern and scalable project and workspace management platform. Th
 - **Authentication:** Google OAuth, Cookie-based authentication
 - **Backend API:** Express.js (Node.js, MongoDB)
 
+# Interaction Screens
+
+## Authentication
+
+![Login Screen](./screens/login.png)
+
+# Dashboard Workspace Screen
+
+![Dashboard Workspace](./screens/workspace-dashboard.png)
+
+## Tasks Page
+
+![Tasks Page](./screens/task-page.png)
+
+## Members Page
+
+![Members Page](./screens/members-page.png)
+
+## Settings Page
+
+![Settings Page](./screens/settings-page.png)
+
+## Project Information Page
+
+![Project Information Page](./screens/project-information-page.png)
+
+## Create Task Dialog
+
+![Create Task Dialog](./screens/create-task-dialog.png)
+
 ## Installation & Setup
 
 ### Prerequisites
